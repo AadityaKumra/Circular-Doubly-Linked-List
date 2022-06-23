@@ -6,6 +6,6 @@ class Main {
     csll.insertNode(2);
     csll.insertNode(3);
     csll.insertNode(4);
-    
+    csll.traverseCDLL();
   }
 }
