@@ -11,21 +11,40 @@ public class CircularDoublyLinkedList{
     size=1;
   }
 
-  public void insertNode(int nodeValue){
+  public void insertNode(int nodeValue,int location){
     if(head==null){
-      createNode(nodeValue);
+      createNode(nodeValue);  
     }
     else{
       Node node=new Node();
       node.value=nodeValue;
-      Node tempNode=head;
-      for(int i=0;i<size-1;i++){
-        tempNode=tempNode.next;
+      //insertion at beginning
+      if(location==0){
+        node.next=head;
+        head.prev=node;
+        tail.next=node;
+        node.prev=tail;
+        head=node;
+      
       }
-      tempNode.next=node;
-      node.prev=tempNode;
-      tail=node;
-      tail.next=head;
+      //for adding node at end
+      else if(location>=size){
+        tail.next=node;
+        node.prev=tail;
+        node.next=head;
+        tail=node;
+        
+      }
+      else{
+        Node tempNode=head;
+        for(int i=0;i<location-1;i++){
+          tempNode=tempNode.next;
+        }
+        tempNode.next.prev=node;
+        tempNode.next=node.next;
+        node.prev=tempNode;
+        tempNode.next=node;
+      }
       size+=1;
     }
   }
