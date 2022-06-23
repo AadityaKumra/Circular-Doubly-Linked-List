@@ -11,5 +11,25 @@ public class CircularDoublyLinkedList{
     size=1;
   }
 
+  public void insertNode(int nodeValue){
+    if(head==null){
+      createNode(nodeValue);
+    }
+    else{
+      Node node=new Node();
+      node.value=nodeValue;
+      Node tempNode=head;
+      for(int i=0;i<size-1;i++){
+        tempNode=tempNode.next;
+      }
+      tempNode.next=node;
+      node.prev=tempNode;
+      tail=node;
+      tail.next=head;
+      size+=1;
+    }
+  }
+
+ 
   
 }
