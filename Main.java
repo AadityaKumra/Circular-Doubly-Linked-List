@@ -25,5 +25,16 @@ class Main {
     cdll.searchNode(0);
     cdll.searchNode(3);
     cdll.searchNode(10);
+
+    cdll.deleteNode(0);
+    cdll.traverseCDLL();;
+
+    cdll.deleteNode(4);
+    cdll.traverseCDLL();
+
+    cdll.deleteNode(2);
+    cdll.traverseCDLL();
+
+    
   }
 }
