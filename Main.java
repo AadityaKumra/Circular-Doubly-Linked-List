@@ -35,6 +35,7 @@ class Main {
     cdll.deleteNode(2);
     cdll.traverseCDLL();
 
-    
+    cdll.deleteCDLL();
+    cdll.traverseCDLL();
   }
 }

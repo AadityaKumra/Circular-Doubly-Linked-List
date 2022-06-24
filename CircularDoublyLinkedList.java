@@ -142,4 +142,15 @@ public class CircularDoublyLinkedList{
       return;
     }
   }
+  //delete entire list
+  public void deleteCDLL(){
+    Node tempNode=head;
+    for(int i=0;i<size;i++){
+      tempNode.prev=null;
+      tempNode=tempNode.next;
+    }
+    head=null;
+    tail=null;
+    System.out.println("Mission Successfull. CDLL terminated.");
+  }
 }
