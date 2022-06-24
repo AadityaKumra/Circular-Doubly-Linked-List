@@ -29,9 +29,10 @@ public class CircularDoublyLinkedList{
       }
       //for adding node at end
       else if(location>=size){
-        tail.next=node;
-        node.prev=tail;
         node.next=head;
+        node.prev=tail;
+        head.prev=node;
+        tail.next=node;
         tail=node;
         
       }
@@ -40,10 +41,10 @@ public class CircularDoublyLinkedList{
         for(int i=0;i<location-1;i++){
           tempNode=tempNode.next;
         }
-        tempNode.next.prev=node;
-        tempNode.next=node.next;
-        node.prev=tempNode;
         tempNode.next=node;
+        node.next=tempNode.next;
+        node.prev=tempNode;
+        tempNode.next.prev=node;
       }
       size+=1;
     }
@@ -65,6 +66,23 @@ public class CircularDoublyLinkedList{
       }
       System.out.print("\n");
     }
+  }
+
+  //reverse traverse CDLL
+  public void reverseTraverse(){
+    if(head==null){
+      System.out.println("CDLL does not exist.");
+      return;
+    }
+    Node tempNode=tail;
+    for(int i=0;i<size;i++){
+      System.out.print(tempNode.value);
+      if(i!=size-1){
+        System.out.print(" <- ");;
+      }
+      tempNode=tempNode.prev;
+    }
+    System.out.print("\n");
   }
   
 }
