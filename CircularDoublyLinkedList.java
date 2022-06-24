@@ -84,5 +84,22 @@ public class CircularDoublyLinkedList{
     }
     System.out.print("\n");
   }
-  
+
+
+  //searching of node
+  public void searchNode(int nodeValue){
+    if(head==null){
+      System.out.println("CDLL does not exist.");
+      return;
+    }
+    Node tempNode=head;
+    for(int i=0;i<size;i++){
+      if(tempNode.value==nodeValue){
+        System.out.println("Badhai Ho! Node found at "+i+"th position.");
+        return;
+      }
+      tempNode=tempNode.next;
+    }
+    System.out.println("Oops! Node not found.");
+  }
 }
